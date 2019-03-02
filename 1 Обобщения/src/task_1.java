@@ -1,19 +1,27 @@
 public class task_1 {
     public static void main(String[] args) {
-        Object[] ints = {1, 4, 6, 8, 2, 3, 5, 7, 8, 4};
-        int a = 2;
+        Integer[] ints = {1, 4, 6, 8, 2, 3, 5, 7, 8, 4};
+        String[] strings = {"a","b","v","i","r","d"};
+        int a = 0;
         int b = 5;
-        Object a1, a2;
-        if (a >= ints.length || b >= ints.length) {
-            System.out.println("Указынны некорректные данные");
+        if (a >= ints.length || b >= ints.length || a <0 || b <0) {
+            System.out.println("Указанны некорректные данные");
             return;
         }
+        Replace(strings,3,5);
+        System.out.println("\n");
+        Replace(ints, a, b);
+    }
+
+    private static <T> void Replace(T[] ints, int a, int b) {
+        T a1;
+        T a2;
         a1 = ints[a];
         a2 = ints[b];
         ints[a] = a2;
         ints[b] = a1;
-        for (int i = 0; i <ints.length ; i++) {
-            System.out.print(ints[i]+" ");
+        for (T t :ints) {
+            System.out.print(t+" ");
         }
     }
 }
