@@ -117,6 +117,7 @@ public class MainWindow extends JFrame implements MessageSender {
                         "Введите новый ник:");
                 try {
                     JdbcLogin_password.changeNickname(result,network.getUsername());
+
                 } catch (ClassNotFoundException e1) {
                     e1.printStackTrace();
                 }
