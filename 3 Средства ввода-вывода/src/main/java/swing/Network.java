@@ -1,5 +1,6 @@
 package swing;
 
+import userHystory.UserHistoryReader;
 import userHystory.UserHistoryWriter;
 
 import java.io.Closeable;
@@ -52,7 +53,8 @@ public class Network implements Closeable {
                             Message msg = new Message(matcher.group(1), username,
                                     matcher.group(2));
                             messageSender.submitMessage(msg);
-
+                            UserHistoryWriter writer = new UserHistoryWriter();
+                            writer.UserHistoryWriter(username, msg.getUserFrom(), msg.getText());
                         } else if (text.startsWith("/userlist")) {
                             // TODO обновить список подключенных пользователей
                             List<String> newUser1 = new ArrayList<>();
@@ -71,6 +73,12 @@ public class Network implements Closeable {
 
     public void sendMessageToUser(Message message) {
         sendMessage(String.format(MESSAGE_SEND_PATTERN, message.getUserTo(), message.getText()));
+        UserHistoryWriter writer = new UserHistoryWriter();
+        try {
+            writer.UserHistoryWriter(username, message.getUserFrom(), message.getText());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void sendMessage(String msg) {
@@ -82,6 +90,11 @@ public class Network implements Closeable {
         }
     }
 
+    public List<Message> getHistory() throws IOException {
+        UserHistoryReader reader = new UserHistoryReader(username);
+        return reader.printByRandomAcessFile();
+    }
+
     public void authorize(String username, String password) throws IOException {
         socket = new Socket(hostName, port);
         out = new DataOutputStream(socket.getOutputStream());
@@ -90,6 +103,8 @@ public class Network implements Closeable {
         out.writeUTF(String.format(AUTH_PATTERN, username, password));
         String response = in.readUTF();
         if (response.equals("/auth successful")) {
+
+
             this.username = username;
             receiver.start();
         } else {

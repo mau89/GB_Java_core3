@@ -9,16 +9,17 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
 public class UserHistoryWriter {
-
-    public UserHistoryWriter(String userTo, String username, String msg) throws IOException {
-        String fileName = "D:/java/gb_Java_core. Профессиональный уровень/Практика/GB_Java_core3/3 Средства ввода-вывода/History/" + userTo + ".txt";
-        File file = new File(fileName);
+    private static final String History="History";
+    public void UserHistoryWriter(String username, String userFrom, String msg) throws IOException {
+        //String fileName = "D:/java/gb_Java_core. Профессиональный уровень/Практика/GB_Java_core3/3 Средства ввода-вывода/History/" + username + ".txt";
+        File file = new File(History,username+ ".txt");
         if (file.exists() == false) {
             file.createNewFile();
         }
-        Path p= Paths.get(fileName);
+        Path p= Paths.get(file.toString());
         try (BufferedWriter writer = Files.newBufferedWriter(p, StandardOpenOption.APPEND)) {
-                writer.append(username + "\n" + msg + "\n");
+            writer.append(userFrom + "|" + msg);
+            writer.append( "\n");
         } catch (
                 IOException e) {
             e.printStackTrace();

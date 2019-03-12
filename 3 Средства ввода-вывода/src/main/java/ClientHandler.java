@@ -70,11 +70,7 @@ public class ClientHandler {
     }
 
     public void sendMessage(String username1,String userTo, String msg) throws IOException {
-        try {
-            new UserHistoryWriter(userTo,username1, msg);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
 
         out.writeUTF(String.format(MESSAGE_SEND_PATTERN, userTo, msg));
     }

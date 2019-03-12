@@ -1,16 +1,13 @@
-user1
-3
-user1
-4
-user1
-5
-user1
-6
-user1
-7
-user1
-8
-user1
-9
-user1
-0
+Server|Подключился новый пользователь user2
+user1|1111111111
+user1|12313123
+user2|werwerwr
+user2|rrrrrrrrrrrrrrrrrrrrrrrrr
+Server|Подключился новый пользователь user2
+user2|zzzzzzzzzzzzzzzzzzzzzzzzzzz
+user1|9999999999999999999999999999999999999
+Server|Подключился новый пользователь user2
+user2|asdadasdasd asda dad
+user1|hello
+Server|Отключился пользователь user1
+Server|Подключился новый пользователь user2

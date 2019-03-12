@@ -1,8 +1,6 @@
 
 import auth.AuthService;
 import auth.AuthServiceImpl;
-import userHystory.UserHistoryReader;
-import userHystory.UserHistoryWriter;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -26,7 +24,7 @@ public class ChatServer {
 
     public static void main(String[] args) {
         ChatServer chatServer = new ChatServer();
-        chatServer.start(7777);
+        chatServer.start(7878);
     }
 
     public void start(int port) {
@@ -52,7 +50,7 @@ public class ChatServer {
                             broadcastUserConnected(username);
 
                             System.out.printf("Authorization for user %s successful%n", username);
-                            new UserHistoryReader(username);
+
                         } else {
                             System.out.printf("Authorization for user %s failed%n", username);
                             out.writeUTF("/auth fails");

@@ -139,7 +139,8 @@ public class MainWindow extends JFrame implements MessageSender {
         setJMenuBar(menuBar);
         setVisible(true);
 
-        network = new Network("localhost", 7777, this);
+
+        network = new Network("localhost", 7878, this);
 
         LoginDialog loginDialog = new LoginDialog(this, network);
         loginDialog.setVisible(true);
@@ -148,7 +149,19 @@ public class MainWindow extends JFrame implements MessageSender {
             System.exit(0);
         }
 
+        try {
+            List<Message> messages =network.getHistory();
+            for (int i = 0; i < messages.size(); i++) {
+                System.out.println(i);
+                messageListModel.add(messageListModel.size(),messages.get(i));
+                messageList.ensureIndexIsVisible(messageListModel.size() - 1);
 
+            }
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         setTitle("Сетевой чат. Пользователь " + network.getUsername());
     }
