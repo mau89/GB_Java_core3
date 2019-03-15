@@ -8,10 +8,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
-public class UserHistoryWriter {
+public class userHistoryWriter {
     private static final String History="History";
     public void UserHistoryWriter(String username, String userFrom, String msg) throws IOException {
-        //String fileName = "D:/java/gb_Java_core. Профессиональный уровень/Практика/GB_Java_core3/3 Средства ввода-вывода/History/" + username + ".txt";
         File file = new File(History,username+ ".txt");
         if (file.exists() == false) {
             file.createNewFile();

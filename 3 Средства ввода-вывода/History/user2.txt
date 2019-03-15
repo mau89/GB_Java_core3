@@ -11,3 +11,7 @@ user2|asdadasdasd asda dad
 user1|hello
 Server|Отключился пользователь user1
 Server|Подключился новый пользователь user2
+Server|Подключился новый пользователь user2
+user2|привет
+user1|здоров
+Server|Отключился пользователь user1

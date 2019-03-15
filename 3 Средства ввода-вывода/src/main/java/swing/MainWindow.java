@@ -1,7 +1,6 @@
 package swing;
 
 import auth.JdbcLogin_password;
-import userHystory.UserHistoryWriter;
 
 import javax.swing.*;
 import java.awt.*;

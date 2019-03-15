@@ -1,7 +1,7 @@
 package swing;
 
-import userHystory.UserHistoryReader;
-import userHystory.UserHistoryWriter;
+import userHystory.userHistoryReader;
+import userHystory.userHistoryWriter;
 
 import java.io.Closeable;
 import java.io.DataInputStream;
@@ -53,7 +53,7 @@ public class Network implements Closeable {
                             Message msg = new Message(matcher.group(1), username,
                                     matcher.group(2));
                             messageSender.submitMessage(msg);
-                            UserHistoryWriter writer = new UserHistoryWriter();
+                            userHistoryWriter writer = new userHistoryWriter();
                             writer.UserHistoryWriter(username, msg.getUserFrom(), msg.getText());
                         } else if (text.startsWith("/userlist")) {
                             // TODO обновить список подключенных пользователей
@@ -73,7 +73,7 @@ public class Network implements Closeable {
 
     public void sendMessageToUser(Message message) {
         sendMessage(String.format(MESSAGE_SEND_PATTERN, message.getUserTo(), message.getText()));
-        UserHistoryWriter writer = new UserHistoryWriter();
+        userHistoryWriter writer = new userHistoryWriter();
         try {
             writer.UserHistoryWriter(username, message.getUserFrom(), message.getText());
         } catch (IOException e) {
@@ -91,7 +91,7 @@ public class Network implements Closeable {
     }
 
     public List<Message> getHistory() throws IOException {
-        UserHistoryReader reader = new UserHistoryReader(username);
+        userHistoryReader reader = new userHistoryReader(username);
         return reader.printByRandomAcessFile();
     }
 
