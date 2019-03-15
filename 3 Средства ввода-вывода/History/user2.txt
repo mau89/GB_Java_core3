@@ -1,0 +1,17 @@
+Server|Подключился новый пользователь user2
+user1|1111111111
+user1|12313123
+user2|werwerwr
+user2|rrrrrrrrrrrrrrrrrrrrrrrrr
+Server|Подключился новый пользователь user2
+user2|zzzzzzzzzzzzzzzzzzzzzzzzzzz
+user1|9999999999999999999999999999999999999
+Server|Подключился новый пользователь user2
+user2|asdadasdasd asda dad
+user1|hello
+Server|Отключился пользователь user1
+Server|Подключился новый пользователь user2
+Server|Подключился новый пользователь user2
+user2|привет
+user1|здоров
+Server|Отключился пользователь user1
