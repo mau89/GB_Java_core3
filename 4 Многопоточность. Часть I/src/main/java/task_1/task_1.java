@@ -30,7 +30,7 @@ public class task_1 {
                     }
                     System.out.print("A");
                     currentLetter = 'B';
-                    mon.notify();
+                    mon.notifyAll();
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -47,7 +47,7 @@ public class task_1 {
                     }
                     System.out.print("B");
                     currentLetter = 'C';
-                    mon.notify();
+                    mon.notifyAll();
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
