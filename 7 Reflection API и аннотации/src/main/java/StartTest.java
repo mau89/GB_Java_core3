@@ -44,7 +44,6 @@ public class StartTest {
         for (Integer key : map.keySet()) {
             try {
                 map.get(key).invoke(tests.getClass().getDeclaredMethods());
-
             } catch (IllegalAccessException |
                     InvocationTargetException e) {
                 e.printStackTrace();
